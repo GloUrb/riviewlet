@@ -1,13 +1,14 @@
 
-# interpolation des données
-#' Title
+
+#' Interpolates X values to replace NA values with a linear interpolation (when surrounded by two values) or mean of the series (at both ends of the signal)
 #'
-#' @param x
+#' @param x a numeric vector
 #'
-#' @return
+#' @return a vector with no missing values
 #' @export
 #'
 #' @examples
+#' replace_NA(c(33,NA,2,18,26,NA,20,NA))
 replace_NA=function(x){
   x=zoo::na.approx(x,na.rm=FALSE)
   xnew=x
@@ -16,17 +17,18 @@ replace_NA=function(x){
   return(xnew)
 }
 
-# détection des ruptures: packagepoint, algo PELT
-#' Title
+#' PELT segmentation
 #'
-#' @param x
-#' @param segcrit
-#' @param pen.value
+#' @param x the vector of values to segment.
+#' @param segcrit the segmentation criterion. Can be either "mean" or "var" or "meanvar". Defaults to "mean".
+#' @param pen.value the penalty value to use for the segmentation. Defaults to "2*log(n)".
 #'
-#' @return
+#' @return the locations of the breaks.
 #' @export
 #'
 #' @examples
+#' x=c(rnorm(50,3,1),rnorm(100,7,1))
+#' find_breaks(x)
 find_breaks=function(x,segcrit="mean", pen.value="2*log(n)"){
   if(segcrit=="mean"){fseg=changepoint::cpt.mean}
   if(segcrit=="var"){fseg=changepoint::cpt.var}
@@ -39,17 +41,19 @@ find_breaks=function(x,segcrit="mean", pen.value="2*log(n)"){
   seg=seg[-length(seg)]
   return(seg)
 }
-# based on break points, attribute a segment number to each observation
-#' Title
+
+#' Define a vector of segments ID based on break points
 #'
-#' @param x
-#' @param segcrit
-#' @param pen.value
+#' @param x the vector of values to segment.
+#' @param segcrit the segmentation criterion. Can be either "mean" or "var" or "meanvar". Defaults to "mean".
+#' @param pen.value the penalty value to use for the segmentation. Defaults to "2*log(n)".
 #'
-#' @return
+#' @return a vector of segment IDs
 #' @export
 #'
 #' @examples
+#' x=c(rnorm(50,3,1),rnorm(100,7,1))
+#' define_segments(x)
 define_segments=function(x,segcrit="mean",pen.value="2*log(n)"){
   cpts=find_breaks(x,
                    segcrit=segcrit,
@@ -60,14 +64,14 @@ define_segments=function(x,segcrit="mean",pen.value="2*log(n)"){
   return(series)
 }
 
-# calculate table with raw series + segment identifier + mean value per segment
-#' Title
+
+#' Calculate table with raw series + segment identifier + mean value per segment
 #'
-#' @param data
+#' @param data the input data
 #' @param z the variable based on which to segment
 #' @param segcrit the criterion used for segmenting (can be "mean","var", or "meanvar"). Defaults to "mean".
-#' @param pen.value
-#' @return
+#' @param pen.value the penalty value to use for the segmentation. Defaults to "2*log(n)".
+#' @return the data plus segment identifiers and mean values per segment
 #' @export
 #' @examples
 #' data(data_ganga)

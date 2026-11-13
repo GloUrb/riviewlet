@@ -6,6 +6,15 @@
 \usage{
 get_data(datapath, vartime = "DATE", varspace = "Unnamed: 0", vary)
 }
+\arguments{
+\item{datapath}{the path to the data}
+
+\item{vartime}{the name of the column defining time}
+
+\item{varspace}{the name of the column defining space}
+
+\item{vary}{the name of the y-variable considered}
+}
 \value{
 a tibble containing variables x, metric (name) and value, and possibly xcat
 }

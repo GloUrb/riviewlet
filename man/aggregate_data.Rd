@@ -7,6 +7,8 @@
 aggregate_data(data, time_acc = "year", space_acc = 10)
 }
 \arguments{
+\item{data}{the data provided}
+
 \item{time_acc}{year, season, month, day. Defaults to year.}
 
 \item{space_acc}{year, season, month, day. Defaults to 10.}

@@ -2,16 +2,30 @@
 % Please edit documentation in R/calc_slopes.R
 \name{calc_slope}
 \alias{calc_slope}
-\title{Calculate slopes of models metrics=f(time)}
+\title{Calculate slopes of models metrics=f(x_reg)}
 \usage{
-calc_slope(datDGO, y_trans = "identity")
+calc_slope(data_metric_subset, x_reg = "x_space", y_trans = "identity")
 }
 \arguments{
-\item{datDGO}{}
+\item{data_metric_subset}{a subset of data_metric table}
+
+\item{x_reg}{the x variable used for the regression. Defaults to "x_time"}
+
+\item{y_trans}{the transformation to apply to data}
 }
 \value{
 a data table with slopes
 }
 \description{
-Calculate slopes of models metrics=f(time)
+Calculate slopes of models metrics=f(x_reg)
+}
+\examples{
+data(data_ganga)
+data_metric=get_metric(data_ganga,metric="ACw_mean")
+# subset a particular time and calculate slope in space
+data_metric_subset=data_metric \%>\% dplyr::filter(x_time=="1995-01-01")
+riviewlet:::calc_slope(data_metric_subset,x_reg="x_space")
+# subset a particular DGO and calculate slope in time
+data_metric_subset=data_metric \%>\% dplyr::filter(x_space==1)
+riviewlet:::calc_slope(data_metric_subset,x_reg="x_time")
 }

@@ -2,13 +2,19 @@
 % Please edit documentation in R/seg.R
 \name{replace_NA}
 \alias{replace_NA}
-\title{Title}
+\title{Interpolates X values to replace NA values with a linear interpolation (when surrounded by two values) or mean of the series (at both ends of the signal)}
 \usage{
 replace_NA(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{a numeric vector}
+}
+\value{
+a vector with no missing values
 }
 \description{
-Title
+Interpolates X values to replace NA values with a linear interpolation (when surrounded by two values) or mean of the series (at both ends of the signal)
+}
+\examples{
+replace_NA(c(33,NA,2,18,26,NA,20,NA))
 }

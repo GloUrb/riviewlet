@@ -4,10 +4,10 @@
 \alias{plot_slopes}
 \title{Plot slopes of models metrics=f(DATE)}
 \usage{
-plot_slopes(dat_slopes, seg = FALSE)
+plot_slopes(data_slopes, seg = FALSE)
 }
 \arguments{
-\item{dat_slopes}{}
+\item{data_slopes}{a data table with slopes, resulting from a call to calc_slopes()}
 }
 \value{
 a data table with slopes
@@ -16,8 +16,8 @@ a data table with slopes
 Plot slopes of models metrics=f(DATE)
 }
 \examples{
-data=readr::read_csv("data/data_ganga.csv")
-dat=get_metric(data,metric="ACw_mean")
-dat_slopes=get_slopes(dat,y_trans="log10")
-plot_slopes(dat_slopes,seg=TRUE)
+data(data_ganga)
+data_metric=get_metric(data_ganga,metric="ACw_mean")
+data_slopes=get_slopes(data_metric,x="x_space",y_trans="log10")
+plot_slopes(data_slopes,seg=TRUE)
 }

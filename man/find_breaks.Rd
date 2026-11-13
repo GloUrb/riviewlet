@@ -2,13 +2,24 @@
 % Please edit documentation in R/seg.R
 \name{find_breaks}
 \alias{find_breaks}
-\title{Title}
+\title{PELT segmentation}
 \usage{
 find_breaks(x, segcrit = "mean", pen.value = "2*log(n)")
 }
 \arguments{
-\item{pen.value}{}
+\item{x}{the vector of values to segment.}
+
+\item{segcrit}{the segmentation criterion. Can be either "mean" or "var" or "meanvar". Defaults to "mean".}
+
+\item{pen.value}{the penalty value to use for the segmentation. Defaults to "2*log(n)".}
+}
+\value{
+the locations of the breaks.
 }
 \description{
-Title
+PELT segmentation
+}
+\examples{
+x=c(rnorm(50,3,1),rnorm(100,7,1))
+find_breaks(x)
 }

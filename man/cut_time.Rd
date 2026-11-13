@@ -7,6 +7,8 @@
 cut_time(x, breaks, prefix = "P")
 }
 \arguments{
+\item{x}{the x variable}
+
 \item{breaks}{}
 }
 \value{

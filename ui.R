@@ -71,7 +71,7 @@ fluidPage(
                     ),#column
             column(width=10,
                     tabsetPanel(id="tabset_which_plot",
-                        tabPanel("lineplots",
+                        tabPanel("📈 lineplots",
                                 uiOutput("ui_slider_dgos"),
                                 fluidRow(
                                   column(width=3,
@@ -82,7 +82,7 @@ fluidPage(
                                 ),#fluidRow on width 10
                                 plotOutput("lineplot_metric")
                                 ),
-                       tabPanel("boxplots",
+                       tabPanel("📊 boxplots",
                                 fluidRow(
                                   column(width=2,offset=1,
                                          checkboxInput("add_means",

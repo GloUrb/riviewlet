@@ -2,13 +2,28 @@
 % Please edit documentation in R/seg.R
 \name{calc_table}
 \alias{calc_table}
-\title{Title}
+\title{Calculate table with raw series + segment identifier + mean value per segment}
 \usage{
-calc_table(data, segcrit = "mean", pen.value = "log(n)")
+calc_table(data, z, segcrit = "mean", pen.value = "log(n)")
 }
 \arguments{
-\item{pen.value}{}
+\item{data}{the input data}
+
+\item{z}{the variable based on which to segment}
+
+\item{segcrit}{the criterion used for segmenting (can be "mean","var", or "meanvar"). Defaults to "mean".}
+
+\item{pen.value}{the penalty value to use for the segmentation. Defaults to "2*log(n)".}
+}
+\value{
+the data plus segment identifiers and mean values per segment
 }
 \description{
-Title
+Calculate table with raw series + segment identifier + mean value per segment
+}
+\examples{
+data(data_ganga)
+data_metric=get_metric(data_ganga,metric="ACw_mean")
+data_slopes=get_slopes(data_metric,y_trans="log10")
+calc_table(data_slopes,z="slope")
 }
