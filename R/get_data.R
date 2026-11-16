@@ -1,8 +1,8 @@
 #' Get and format raw data from datapath
-#' @param datapath
-#' @param vartime
-#' @param varspace
-#' @param vary
+#' @param datapath the path to the data
+#' @param vartime the name of the column defining time
+#' @param varspace the name of the column defining space
+#' @param vary the name of the y-variable considered
 #' @return a tibble containing variables x, metric (name) and value, and possibly xcat
 #' @export
 #'

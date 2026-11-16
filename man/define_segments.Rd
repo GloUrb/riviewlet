@@ -2,13 +2,24 @@
 % Please edit documentation in R/seg.R
 \name{define_segments}
 \alias{define_segments}
-\title{Title}
+\title{Define a vector of segments ID based on break points}
 \usage{
 define_segments(x, segcrit = "mean", pen.value = "2*log(n)")
 }
 \arguments{
-\item{pen.value}{}
+\item{x}{the vector of values to segment.}
+
+\item{segcrit}{the segmentation criterion. Can be either "mean" or "var" or "meanvar". Defaults to "mean".}
+
+\item{pen.value}{the penalty value to use for the segmentation. Defaults to "2*log(n)".}
+}
+\value{
+a vector of segment IDs
 }
 \description{
-Title
+Define a vector of segments ID based on break points
+}
+\examples{
+x=c(rnorm(50,3,1),rnorm(100,7,1))
+define_segments(x)
 }

@@ -2,19 +2,26 @@
 % Please edit documentation in R/calc_slopes.R
 \name{get_slopes}
 \alias{get_slopes}
-\title{Calculate slopes of models metrics=f(DATE)}
+\title{Calculate for each subset based on x the slope of metric=f(x_reg) for the whole data_metric table}
 \usage{
-get_slopes(data, y_trans = "identity")
+get_slopes(data_metric, x = "x_space", y_trans = "identity")
+}
+\arguments{
+\item{data_metric}{a data_metric table}
+
+\item{x}{the variable defining the subset of data ("x_time" or, by default, "x_space"). If x="x_time" then x_reg="x_space" and conversely.}
+
+\item{y_trans}{the transformation to apply to the metric in the regression y~x_reg}
 }
 \value{
 a data table with slopes
 }
 \description{
-Calculate slopes of models metrics=f(DATE)
+Calculate for each subset based on x the slope of metric=f(x_reg) for the whole data_metric table
 }
 \examples{
-
-data=readr::read_csv("data/data_ganga.csv")
-dat=get_metric(data,metric="ACw_mean")
-get_slopes(dat)
+data(data_ganga)
+data_metric=get_metric(data_ganga,metric="ACw_mean")
+get_slopes(data_metric,x="x_space")
+get_slopes(data_metric,x="x_time")
 }

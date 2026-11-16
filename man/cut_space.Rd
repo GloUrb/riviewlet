@@ -7,6 +7,10 @@
 cut_space(x, breaks, prefix = "R")
 }
 \arguments{
+\item{x}{the x variable on which to define breaks}
+
+\item{breaks}{the location of breaks passed as a string whose elements are separated by a ";"}
+
 \item{type}{can be either "numeric" or "date". Defaults to "numeric"}
 }
 \value{

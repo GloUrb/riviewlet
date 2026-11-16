@@ -1,7 +1,7 @@
 #' Categorize based on space or time variable
 #'
-#' @param x
-#' @param breaks
+#' @param x the x variable on which to define breaks
+#' @param breaks the location of breaks passed as a string whose elements are separated by a ";"
 #' @param type can be either "numeric" or "date". Defaults to "numeric"
 #'
 #' @return a categorical variable
@@ -27,7 +27,7 @@ cut_space=function(x, breaks, prefix="R"){
 
 #' Categorize based on space or time variable
 #'
-#' @param x
+#' @param x the x variable
 #' @param breaks
 #'
 #' @return a categorical variable

@@ -9,7 +9,9 @@ lineplot_metric(
   x = "x_space",
   color = "x_space_cat",
   scale_y = "identity",
-  add_regression = FALSE
+  add_regression = FALSE,
+  x_space_min = min(dat$x_space),
+  x_space_max = max(dat$x_space)
 )
 }
 \arguments{
@@ -20,6 +22,10 @@ lineplot_metric(
 \item{scale_y}{the scale for Y variable (defaults to "identity")}
 
 \item{add_regression}{whether to add a regression line}
+
+\item{x_space_min}{the minimum space facet value. Defaults to minimum DGO.}
+
+\item{x_space_max}{the maximum space facet value. Defautts to maximum DGO.}
 
 \item{data}{the data table}
 

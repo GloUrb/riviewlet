@@ -1,5 +1,5 @@
 #' Aggregate the data in time and space
-#' @param data
+#' @param data the data provided
 #' @param time_acc year, season, month, day. Defaults to year.
 #' @param space_acc year, season, month, day. Defaults to 10.
 #' @return a tibble containing variables x, metric (name) and value, and possibly xcat
