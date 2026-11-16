@@ -14,8 +14,13 @@ Imports:
     dplyr,
     changepoint,
     leaflet,
+    sf,
     ggplot2,
     readr,
-    shiny
+    shiny,
+    lubridate,
+    tidyr,
+    rlang,
+    stringr
 Depends: 
     R (>= 2.10)

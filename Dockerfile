@@ -14,9 +14,12 @@ RUN Rscript -e 'install.packages("leaflet")'
 RUN Rscript -e 'install.packages("changepoint")'
 RUN Rscript -e 'install.packages("dplyr")'
 RUN Rscript -e 'install.packages("ggplot2")'
-RUN Rscript -e 'install.packages("reactlog")'
 RUN Rscript -e 'install.packages("readr")'
-
+RUN Rscript -e 'install.packages("lubridate")'
+RUN Rscript -e 'install.packages("tidyr")'
+RUN Rscript -e 'install.packages("stringr")'
+RUN Rscript -e 'install.packages("rlang")'
+RUN Rscript -e 'install.packages("sf")'
 # On copie l'arborescence de fichiers dans un dossier app à la racine de l'image. Ce sera le working directory des containers lancés avec notre image
 RUN mkdir /app
 ADD . /app
